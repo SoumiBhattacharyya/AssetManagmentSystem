@@ -1,0 +1,45 @@
+<div class="alert alert-danger" *ngIf='message'>{{message}}</div>
+<div class="bg"></div>
+<div class="container mt-5">
+  <button type="button" class="btn btn-primary" routerLink="/allocated-assets">Allocated Assets</button>&nbsp;
+  <button type="button" class="btn btn-primary" routerLink="/unallocated-assets">Unallocated Assets</button>
+   <br><br>
+  <table class="table table-bordered table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th>Request Id</th>
+        <th>Manager Id</th>
+        <th>Asset Id</th>
+        <th>Customer Id</th>
+        <th>Asset Name</th>
+        <th>Quantity</th>
+        <th>Status</th>
+        <th>Request Validation</th>
+        <th>Approval</th>
+        <th>Rejection</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let request of requests'>
+        <td>{{request.requestId}}</td>
+        <td>{{request.userId}}</td>
+        <td>{{request.assetId}}</td>
+        <td>{{request.employeeId}}</td>
+        <td>{{request.assetName}}</td>
+        <td>{{request.assetQuantity}}</td>
+        <td>{{request.status}}</td>
+        <td><button  class="btn btn-warning"(click)='validateRequests(request)' >
+          Validate
+        </button>  </td>
+        <td><button class="btn btn-success"(click)='approveRequests(request)' >
+          Approve
+        </button></td>
+        <td><button class="btn btn-danger"(click)='rejectRequests(request)' >
+          Reject
+        </button></td>
+        
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,67 @@
+<div class="alert alert-success" *ngIf='message'>{{ message }}</div>
+<div class="col-md-4 offset-md-4 mt-3">
+  <form #raiseRequestForm='ngForm' (ngSubmit)='postRequest(raiseRequestForm)'>
+    <div class="card">
+      <div class="card-header ">
+        <h4>Generate Report</h4>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+            <label for="requestId">Request Id</label>
+            <input type="text" name="requestId" class="form-control" id="requestId" #requestId='ngModel' [(ngModel)]='requestToUpdate.requestId' readonly >
+          </div>
+        
+          <div class="form-group">
+            <label for="userId">User Id</label>
+            <input type="text" class="form-control" id="userId" #userId='ngModel' [(ngModel)]='requestToUpdate.userId' name="userId" readonly >
+          </div>
+          <div class="form-group">
+            <label for="employeeId">Asset Id</label>
+            <input type="text" name="assetId" id="assetId" class="form-control" #assetId='ngModel' [(ngModel)]='requestToUpdate.assetId' readonly >
+          </div>
+            <div class="form-group">
+              <label for="employeeId">Customer Id</label>
+              <input type="text" class="form-control" id="employeeId" #employeeId='ngModel' [(ngModel)]='requestToUpdate.assetId' name='employeeId' readonly>
+            </div>
+
+            <div class="form-group">
+              <label for="assetName">Asset Name</label>
+              <input type="text" class="form-control" id="assetName" name="assetName" #assetName='ngModel' [(ngModel)]='requestToUpdate.assetName' readonly>
+            </div>
+
+
+            <div class="form-group">
+              <label for="assetQuantity">Asset Quantity</label>
+              <input type="text" class="form-control" id="assetQuantity" name="assetQuantity" #assetQuantity='ngModel' [(ngModel)]='requestToUpdate.assetQuantity' readonly>
+            </div>   
+
+            <div class="form-group">
+                <label for="totalPrice">Total Price</label>
+                <input type="text" class="form-control" id="totalPrice" name="totalPrice" #totalPrice='ngModel' [(ngModel)]='requestToUpdate.totalPrice'readonly>
+              </div>   
+
+              <div class="form-group">
+                <label for="status">Status</label>
+                <input type="text" class="form-control" id="status" name="status" #status='ngModel' [(ngModel)]='requestToUpdate.status'readonly>
+              </div> 
+              
+              <div class="form-group">
+                <label for="alcUnlc">Allocated/Un-Allocated</label>
+                <input type="text" class="form-control" id="alcUnlc" name="alcUnlc" #alcUnlc='ngModel' [(ngModel)]='requestToUpdate.alcUnlc'readonly>
+              </div> 
+
+              <div class="form-group">
+                <label for="reason">Details</label>
+                <input type="text" class="form-control" id="reason" name="reason" #reason='ngModel' [(ngModel)]='requestToUpdate.reason'readonly>
+              </div> 
+
+            
+
+    
+       </div>
+      <div class="card-footer">
+      </div>
+    </div>  
+  </form>
+</div>
+

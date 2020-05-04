@@ -1,0 +1,72 @@
+<div class="alert alert-success" *ngIf='message'>{{ message }}</div>
+<div class ="col-md-4 offset-md-4 mt-5 mb-3">
+  <form #validateRequestForm='ngForm' (ngSubmit)='updateRequest(validateRequestForm)'>
+     <div class="card">
+      <div class="card-header">
+        <h4>Validate Request</h4>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <label for="requestId">Request Id</label>
+          <input type="text" name="requestId" id="requestId" class="form-control" name="requestId" #requestId='ngModel' [(ngModel)]='requestToUpdate.requestId' readonly minlength="3">
+        </div>
+        <div class="form-group">
+          <label for="userId">Manager Id</label>
+          <input type="text" name="userId" id="userId" class="form-control" name="userId" #userId='ngModel' [(ngModel)]='requestToUpdate.userId' readonly minlength="3">
+        </div>
+        <div class="form-group">
+          <label for="assetId">Quantity</label>
+          <input type="text" name="assetId" id="assetId" class="form-control" #assetId='ngModel' [(ngModel)]='requestToUpdate.assetId' name="assetId" readonly >
+        </div>
+
+        <div class="form-group">
+          <label for="employeeId">Quantity</label>
+          <input type="text" name="employeeId" id="employeeId" class="form-control" #employeeId='ngModel' [(ngModel)]='requestToUpdate.employeeId' name="employeeId" readonly >
+        </div>
+
+        <div class="form-group">
+          <label for="assetName">Quantity</label>
+          <input type="text" name="assetName" id="assetName" class="form-control" #assetName='ngModel' [(ngModel)]='requestToUpdate.assetName' name="assetName" readonly >
+        </div>
+
+        <div class="form-group">
+          <label for="assetQuantity">Quantity</label>
+          <input type="text" name="assetQuantity" id="assetQuantity" class="form-control" #assetQuantity='ngModel' [(ngModel)]='requestToUpdate.assetQuantity' name="assetQuantity" readonly >
+        </div>
+
+        <div class="input-group mb-6">
+          <label for="assetQuantity">Allocate/Un-Allocate : </label>
+          <select class="form-control" name="alcUnlc" id="alcUnlc" #alcUnlc='ngModel' ngModel>
+            <option value="allocated">Allocate</option>
+            <option value="unallocated">Un-Allocate</option>
+          </select>    
+      </div>
+
+        <div class="form-group">
+          <label for="reason">Reason</label>
+          <input type="text" name="reason" id="reason" class="form-control" #reason='ngModel' [(ngModel)]='requestToUpdate.reason' name="reason" >
+        </div>
+
+        <div class="form-group">
+          
+          <input type="hidden" name="totalPrice" id="totalPrice" class="form-control" #totalPrice='ngModel' [(ngModel)]='requestToUpdate.totalPrice'  readonly >
+        </div>
+
+        <div class="form-group">
+          
+          <input type="hidden" name="assetPrice" id="assetPrice" class="form-control" #assetPrice='ngModel' [(ngModel)]='requestToUpdate.assetPrice'  readonly >
+        </div>
+
+        <div class="form-group">
+          
+          <input type="hidden" name="status" id="status" class="form-control" #status='ngModel' [(ngModel)]='requestToUpdate.status' name="status" readonly >
+        </div>
+
+      </div>     
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary float-right">Save</button>
+      </div>
+      </div>
+      </form>
+</div>
+

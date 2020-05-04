@@ -1,0 +1,54 @@
+<div class="alert alert-success" *ngIf='message'>{{ message }}</div>
+<div class="col-md-4 offset-md-4 mt-3">
+  <form #raiseRequestForm='ngForm' (ngSubmit)='postRequest(raiseRequestForm)'>
+    <div class="card">
+      <div class="card-header ">
+        <h4>Raise a Request</h4>
+      </div>
+      <div class="card-body">
+        
+          <div class="form-group">
+            <label for="userId">User Id</label>
+            <input type="text" class="form-control" id="userId" #userId='ngModel' ngModel name="userId" required >
+            <div  *ngIf='userId.touched && userId.invalid'>
+              <div class="alert alert-danger" *ngIf='userId.errors.required'>
+                This field is mandatory!
+              </div>
+              
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="employeeId">Asset Id</label>
+            <input type="text" name="assetId" id="assetId" class="form-control" #assetId='ngModel' [(ngModel)]='raiseRequest.assetId' readonly >
+          </div>
+            <div class="form-group">
+              <label for="employeeId">Employee Id</label>
+              <input type="text" class="form-control" id="employeeId" #employeeId='ngModel' ngModel name='employeeId' required>
+              <div  *ngIf='employeeId.touched && employeeId.invalid'>
+                <div class="alert alert-danger" *ngIf='employeeId.errors.required'>
+                  This field is mandatory!
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="assetName">Asset Name</label>
+              <input type="text" class="form-control" id="assetName" name="assetName" #assetName='ngModel' [(ngModel)]='raiseRequest.assetName' readonly>
+            </div>
+
+
+            <div class="form-group">
+              <label for="assetQuantity">Asset Quantity</label>
+              <input type="text" class="form-control" id="assetQuantity" name="assetQuantity" #assetQuantity='ngModel' ngModel required>
+            </div>   
+    
+       </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-outline-dark float-right">
+          Submit
+        </button>
+      </div>
+    </div>  
+  </form>
+</div>
+

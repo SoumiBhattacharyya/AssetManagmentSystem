@@ -1,0 +1,78 @@
+<div class="alert alert-success" *ngIf='message'>{{ message }}</div>
+<div class ="col-md-4 offset-md-4 mt-5 mb-3">
+  <form #editAssetForm='ngForm' (ngSubmit)='updateAsset(editAssetForm)'>
+     <div class="card">
+      <div class="card-header">
+        <h4>Edit Assets</h4>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <input type="hidden" name="assetId" id="assetId" class="form-control" name="assetId" #assetId='ngModel' [(ngModel)]='assetToUpdate.assetId' >
+        </div>
+        <div class="form-group">
+          <label for="assetName">Asset Name</label>
+          <input type="text" name="assetName" id="assetName"  class="form-control" name="assetName" #assetName='ngModel' [(ngModel)]='assetToUpdate.assetName' required minlength="3">
+          <div  *ngIf='assetName.touched && assetName.invalid'>
+            <div class="alert alert-danger" *ngIf='assetName.errors.required'>
+              This field is mandatory!
+            </div>
+            <div class="alert alert-danger" *ngIf='assetName.errors.minlength'>
+              This field accepts atleast 3 characters !
+            </div>
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="assetQuantity">Quantity</label>
+          <input type="text" name="assetQuantity" id="assetQuantity" class="form-control" pattern="^[1-9]\d*$" #assetQuantity='ngModel' [(ngModel)]='assetToUpdate.assetQuantity' name="assetQuantity" required >
+          <div  *ngIf='assetQuantity.touched && assetQuantity.invalid'>
+            <div class="alert alert-danger" *ngIf='assetQuantity.errors.required'>
+              This field is mandatory!
+            </div>
+            <div class="alert alert-danger" *ngIf='assetQuantity.errors.pattern'>
+              This field accepts only numbers without decimal !
+            </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+          <label for="assetPrice">Price/Unit</label>
+          <input type="text" name="assetPrice" id="assetPrice" class="form-control" pattern="^\d*\.?\d*$" #assetPrice='ngModel' [(ngModel)]='assetToUpdate.assetPrice' name="assetPrice" required>
+          <div  *ngIf='assetPrice.touched && assetPrice.invalid'>
+            <div class="alert alert-danger" *ngIf='assetPrice.errors.required'>
+              This field is mandatory!
+            </div>
+            <div class="alert alert-danger" *ngIf='assetPrice.errors.pattern'>
+              This field accepts only positive numbers with or without decimal!
+            </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+        <label for="assetImageUrl">Asset Image URL</label>
+        <input type="text" name="assetImageUrl" id="assetImageUrl"  class="form-control" name="assetImageUrl" #assetImageUrl='ngModel' [(ngModel)]='assetToUpdate.assetImageUrl' required>
+        <div  *ngIf='assetImageUrl.touched && assetImageUrl.invalid'>
+          <div class="alert alert-danger" *ngIf='assetImageUrl.errors.required'>
+            This field is mandatory !
+          </div>
+          </div>
+      </div>
+            
+        <div class="form-group">
+        <label for="assetDescription">Asset Description</label>
+        <input type="text" name="assetDescription" id="assetDescription" class="form-control" name="assetDescription" #assetDescription='ngModel' [(ngModel)]='assetToUpdate.assetDescription' required minlength="6" maxlength="45">
+        <div  *ngIf='assetDescription.touched && assetDescription.invalid'>
+          <div class="alert alert-danger" *ngIf='assetDescription.errors.required'>
+            This field is mandatory!
+          </div>
+          <div class="alert alert-danger" *ngIf='assetDescription.errors.minlength'>
+            This field accepts atleast 6 and max of 45 characters! 
+          </div>
+          </div>
+      </div> 
+      </div>     
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary float-right">Update Asset</button>
+      </div>
+      </div>
+      </form>
+</div>

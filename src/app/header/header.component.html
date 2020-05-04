@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink='/home'>ASSET MANAGEMENT SYSTEM</a>
+    
+   <div class="collapse navbar-collapse" id="collapsibleNavId">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+     
+
+      <li class="nav-item " *ngIf='authService.isLogged()'>
+        <a class="nav-link" routerLink="/home">Home</a>
+      </li>
+      <li class="nav-item" *ngIf='authService.isManager() && authService.isLogged()'>
+        <a class="nav-link" routerLink="/assets">Assets</a>
+      </li>
+      <li class="nav-item" *ngIf='authService.isAdmin() && authService.isLogged() '>
+        <a class="nav-link" routerLink="/my-assets">Assets</a>
+      </li>
+      <!-- <li class="nav-item" *ngIf='authService.isManager() && authService.isLogged() '>
+        <a class="nav-link" routerLink="/raise-request">Raise Request</a>
+      </li> -->
+      <li class="nav-item " *ngIf='authService.isAdmin() && authService.isLogged() '>
+        <a class="nav-link" routerLink="/users">Users</a>
+      </li>
+      <li class="nav-item" *ngIf='authService.isManager() && authService.isLogged() '>
+        <a class="nav-link" routerLink="/customers">Customers</a>
+      </li>
+      <li class="nav-item" *ngIf='authService.isManager() && authService.isLogged() '>
+        <a class="nav-link" routerLink="/my-requests">My Requests</a>
+      </li>
+      <li class="nav-item" *ngIf='authService.isAdmin() && authService.isLogged() '>
+        <a class="nav-link" routerLink="/all-requests">All Requests</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto" >
+      <li class="nav-item" *ngIf='authService.isLogged()'>
+        <!-- <a class="nav-link" routerLink="/profile">Profile</a> -->
+       <a routerLink="/profile-settings" > <img class="p1" src="https://png.pngtree.com/png-vector/20191122/ourlarge/pngtree-beautiful-profile-settings-glyph-vector-icon-png-image_2002835.jpg" alt="" height="30" width="28" ></a>
+      
+      </li> 
+      <li class="nav-item" *ngIf='authService.isLogged()'>
+        <!-- <a class="nav-link" routerLink="/profile">Profile</a> -->
+       <a routerLink="/profile" >  <img class="p2" src="https://thumbs.dreamstime.com/b/user-profile-icon-creative-trendy-colorful-round-button-illustration-isolated-156511788.jpg" alt="" height="30" width="28" ></a>
+      
+      </li> 
+      <li class="nav-item" *ngIf='!authService.isLogged()'>
+        <a class="nav-link" routerLink="/login"> Login</a>
+      </li>
+      
+      <li class="nav-item" *ngIf='!authService.isLogged()'>
+        <a class="nav-link" routerLink="/register">Register</a>
+      </li>
+      <li class="nav-item" *ngIf='authService.isLogged()'>
+        <a class="nav-link" style="cursor: pointer;" (click)='authService.logout()'>Logout</a>
+      </li>
+    </ul>
+    
+  </div>
+</nav>
+
+  
+</body>
+</html>

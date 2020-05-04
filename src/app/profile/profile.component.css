@@ -1,0 +1,62 @@
+
+
+body,html{
+    margin: 0;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    /* height: 100%; */
+    display: block;
+}
+
+.bg{
+    /* background-image: url("https://cdn.pixabay.com/photo/2020/01/26/11/46/paper-flower-background-4794429_960_720.jpg"); */
+    height: 100%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+li{
+    display: inline-block;
+    list-style: none;
+    word-spacing: 2px;
+    padding: 5px;
+    font-size: 20px;
+    font-family: cursive;
+}
+li,a{
+    text-decoration: none;
+}
+
+.s1,.s2{
+    float: right;
+    padding: 10px;
+}
+
+.s3{
+    /* background-color: lightpink; */
+    background-image: url("https://cdn.pixabay.com/photo/2020/01/26/11/46/paper-flower-background-4794429_960_720.jpg");
+    word-spacing: 2px;
+    letter-spacing: 2px;
+    margin: 30px 500px ;
+    padding: 10px 100px;
+    text-align: center;
+    color: teal;
+    border-width: 500px;
+    border-radius: 10px;
+    /* margin-top: 30px;
+    margin-bottom: 30px; */
+    
+    
+}
+
+
+.p1,.p2,.p3,.p{
+    border-radius: 50%;
+    
+}
+

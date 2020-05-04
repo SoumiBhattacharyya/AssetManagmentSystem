@@ -1,0 +1,31 @@
+<div class="bg"></div>
+<div class="container mt-5">
+  <div><h4>UN-ALLOCATED ASSETS</h4></div><br>
+  <table class="table table-bordered table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th>Request Id</th>
+        <th>Manager Id</th>
+        <th>Asset Id</th>
+        <th>Customer Id</th>
+        <th>Asset Name</th>
+        <th>Quantity</th>
+        <th>Reason</th>
+        <th>Status</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let request of requests'>
+        <td>{{request.requestId}}</td>
+        <td>{{request.userId}}</td>
+        <td>{{request.assetId}}</td>
+        <td>{{request.employeeId}}</td>
+        <td>{{request.assetName}}</td>
+        <td>{{request.assetQuantity}}</td>
+        <td>{{request.reason}}</td>
+        <td>{{request.status}}</td>   
+      </tr>
+    </tbody>
+  </table>
+</div>

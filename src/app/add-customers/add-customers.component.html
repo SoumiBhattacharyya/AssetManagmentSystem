@@ -1,0 +1,122 @@
+<div class="alert alert-success" *ngIf='message'>{{ message }}</div>
+<div class ="col-md-4 offset-md-4 mt-5 mb-3">
+  <form #addUserForm='ngForm' (ngSubmit)='postUser(addUserForm)'>
+    <div class="card">
+      <div class="card-header">
+        <h4>Add Customer</h4>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input #fullName='ngModel' name="fullName" 
+           ngModel type="text" class="form-control" id="fullName" 
+          minlength='3' maxlength="20"   required>
+          <div  *ngIf='fullName.invalid && fullName.touched'>
+            <div class="alert alert-danger" *ngIf='fullName.errors.required'>
+              This field is mandatory!
+            </div>
+            <div class="alert alert-danger" *ngIf='fullName.errors.minlength'>
+              This field accepts atleast 3 and max 20 characters !
+            </div>
+            <!-- <div class="alert alert-danger" *ngIf='fullName.errors.pattern'>
+              Name should start and end with letters and there cannot be consecutive spaces !
+            </div> -->
+          </div>
+        </div>
+        <div class="form-group ">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="example@mail.com" required minlength="8" #email='ngModel' ngModel name="email"  required>
+          <div  *ngIf='email.touched && email.invalid'>
+            <div class="alert alert-danger" *ngIf='email.errors.required'>
+              This field is mandatory
+            </div>
+            <div class="alert alert-danger" *ngIf='email.errors.minlength'>
+              This field accepts atleast 8 characters and should include @ !
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Example@1"  minlength="8" maxlength="15" #password='ngModel' ngModel name="password" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" required>
+          <div  *ngIf='password.touched && password.invalid'>
+            <div class="alert alert-danger" *ngIf='password.errors.required'>
+              This field is mandatory!
+            </div>
+            <div class="alert alert-danger" *ngIf='password.errors.minlength && password.errors.maxlength'>
+              This field accepts atleast 6 and max of 15 characters !
+            </div>
+            <div class="alert alert-danger" *ngIf='password.errors.pattern'>
+              It should contain a combination of atleast one uppercase , lowercase , numbers and special characters !
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" class="form-control" placeholder="Example@1" id="confirmPassword" required minlength="8" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" #confirmPassword='ngModel' ngModel name="confirmPassword" required>
+          <div  *ngIf='confirmPassword.touched && confirmPassword.invalid'>
+            <div class="alert alert-danger" *ngIf='confirmPassword.errors.required'>
+              This field is mandatory!
+            </div>
+            <div class="alert alert-danger" *ngIf='confirmPassword.errors.minlength'>
+              This field accepts atleast 8 and max of 15 characters !
+            </div>
+            <div class="alert alert-danger" *ngIf='confirmPassword'>
+              It should contain a combination of atleast one uppercase , alphabets , numbers and special characters !
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="mobile">Phone Number</label>
+          <input type="tel" class="form-control" id="mobile" placeholder="+91-" pattern="^[789]\d{9}$" minlength="10" #mobile='ngModel' ngModel name='mobile'  required>
+          <div  *ngIf='mobile.touched && mobile.invalid'>
+            <div class="alert alert-danger" *ngIf='mobile.errors.required'>
+              This field is mandatory!
+            </div>
+            <div class="alert alert-danger" *ngIf='mobile.errors.pattern'>
+              This field accepts minimum of 10 digits !
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="userImage">Profile Photo</label>
+          <input type="text" name="userImage" id="userImage"  class="form-control" name="userImage" #userImage='ngModel' ngModel required>
+          <div  *ngIf='userImage.touched && userImage.invalid'>
+            <div class="alert alert-danger" *ngIf='userImage.errors.required'>
+              This field is mandatory !
+            </div>
+            </div>
+        </div>
+
+        <div class="input-group mb-6">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Role</span>
+          </div>
+          <select class="form-control" name="role" id="role" #role='ngModel' aria-readonly="true" ngModel>
+            <!-- <option value="admin">Admin</option> -->
+            <option value="CUSTOMER">Customer</option>
+          </select>
+        </div>
+      
+      </div>
+      <div class="form-group col-md-12">
+        <label for="address">Address</label>
+        <textarea type="text" class="form-control" id="address" placeholder="1234 Main St" name="address" #address='ngModel' maxlength="255" ngModel  minlength="3" required></textarea>
+        <div  *ngIf='address.touched && address.invalid'>
+          <div class="alert alert-danger" *ngIf='address.errors.required'>
+            This field is mandatory!
+          </div>
+          <div class="alert alert-danger" *ngIf='address.errors.minlength'>
+            This field accepts atleast 6 and a max of 20 characters !
+          </div>
+        </div>
+    
+ </div>     
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary float-right">Save</button>
+      </div>
+      </div>
+      </form>
+</div>
+
+

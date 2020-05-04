@@ -1,0 +1,108 @@
+<div class="alert alert-success" *ngIf='message'>{{ message }}</div>
+<div class ="col-md-4 offset-md-4 mt-5 mb-3">
+  <form #editUserForm='ngForm' (ngSubmit)='updateUser(editUserForm)'>
+     <div class="card">
+      <div class="card-header">
+        <h4>Edit Users</h4>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <input type="text" name="userId" id="userId" class="form-control" #userId='ngModel' [(ngModel)]='userToUpdate.userId' >
+        </div>
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input #fullName='ngModel' name="fullName" 
+            type="text" class="form-control" id="fullName" 
+          minlength='3' maxlength="20"  [(ngModel)]='userToUpdate.fullName' required>
+          <div  *ngIf='fullName.invalid && fullName.touched'>
+            <div class="alert alert-danger" *ngIf='fullName.errors.required'>
+              This field is mandatory!
+            </div>
+            <div class="alert alert-danger" *ngIf='fullName.errors.minlength'>
+              This field accepts atleast 3 and max 20 characters !
+            </div>
+          </div>
+        </div>
+        <div class="form-group ">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" required minlength="8" placeholder="example@mail.com" #email='ngModel' ngModel name="email" [(ngModel)]='userToUpdate.email' required>
+          <div  *ngIf='email.touched && email.invalid'>
+            <div class="alert alert-danger" *ngIf='email.errors.required'>
+              This field is mandatory
+            </div>
+            <div class="alert alert-danger" *ngIf='email.errors.minlength'>
+              This field accepts atleast 8 characters!
+            </div>
+            <div class="alert alert-danger" *ngIf='email'>
+              Please enter a valid email with @  !
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Example@1" pattern="^([a-zA-Z0-9@*#]{8,15})$"  minlength="6" maxlength="15" #password='ngModel' ngModel name="password" [(ngModel)]='userToUpdate.password' required>
+          <div  *ngIf='password.touched && password.invalid'>
+            <div class="alert alert-danger" *ngIf='password.errors.required'>
+              This field is mandatory!
+            </div>
+            <div class="alert alert-danger" *ngIf='password.errors.minlength'>
+              This field accepts atleast 6 and max of 15 characters !
+            </div>
+            <div class="alert alert-danger" *ngIf='password.errors.pattern'>
+              It should contain a combination of atleast one uppercase , alphabets , numbers and special characters !
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" class="form-control" id="confirmPassword" required minlength="6" placeholder="Example@1" pattern="^([a-zA-Z0-9@*#]{8,15})$" #confirmPassword='ngModel' ngModel name="confirmPassword" [(ngModel)]='userToUpdate.confirmPassword' required>
+          <div  *ngIf='confirmPassword.touched && confirmPassword.invalid'>
+            <div class="alert alert-danger" *ngIf='confirmPassword.errors.required'>
+              This field is mandatory!
+            </div>
+            <div class="alert alert-danger" *ngIf='confirmPassword.errors.minlength'>
+              This field accepts atleast 6 and max of 15 characters !
+            </div>
+            <div class="alert alert-danger" *ngIf='confirmPassword.errors.pattern'>
+              It should contain a combination of atleast one uppercase , alphabets , numbers and special characters !
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="mobile">Phone Number</label>
+          <input type="tel" class="form-control" id="mobile" minlength="10" placeholder="9876543210" pattern="^[\\(]{0,1}([0-9]){3}[\\)]{0,1}[ ]?([^0-1]){1}([0-9]){2}[ ]?[-]?[ ]?([0-9]){4}[ ]*((x){0,1}([0-9]){1,5}){0,1}$" #mobile='ngModel' ngModel name='mobile' [(ngModel)]='userToUpdate.mobile' required>
+          <div  *ngIf='mobile.touched && mobile.invalid'>
+            <div class="alert alert-danger" *ngIf='mobile.errors.required'>
+              This field is mandatory!
+            </div>
+            <div class="alert alert-danger" *ngIf='mobile.errors.minlength'>
+              This field accepts minimum of 10 digits !
+            </div>
+            <div class="alert alert-danger" *ngIf='mobile.errors.pattern'>
+              This field accepts minimum of 10 digits !
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="hidden" name="role" id="role" class="form-control" name="role" #role='ngModel' [(ngModel)]='userToUpdate.role' ngModel value="admin" >
+        </div>
+      </div>
+     <div class="form-group col-md-12">
+      <label for="address">Address</label>
+      <input type="text" class="form-control" id="address" placeholder="1234 Main St" name="address" #address='ngModel' maxlength="20" ngModel [(ngModel)]='userToUpdate.address' minlength="3" required>
+      <div  *ngIf='address.touched && address.invalid'>
+        <div class="alert alert-danger" *ngIf='address.errors.required'>
+          This field is mandatory!
+        </div>
+        <div class="alert alert-danger" *ngIf='address.errors.minlength'>
+          This field accepts atleast 6 and a max of 20 characters !
+        </div>
+      </div>
+    
+ </div>     
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary float-right">Update User</button>
+      </div>
+      </div>
+      </form>
+</div>

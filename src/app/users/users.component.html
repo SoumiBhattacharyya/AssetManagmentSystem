@@ -1,0 +1,41 @@
+<div class="alert alert-danger" *ngIf='message'>{{message}}</div>
+<div class="container mt-5 mb-6 ">
+ <button type="button" class="btn btn-primary" routerLink="/add-managers">Add Managers</button>
+  <br><br>
+  <table class="table table-bordered table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th>User Id</th>
+        <th>Full Name</th>
+        <th>Email</th>
+        <!-- <th>Password</th>
+        <th>Confirm Password</th> -->
+        <th>Mobile No.</th>
+        <th>Address</th>
+        <th>Role</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{user.userId}}</td>
+        <td>{{user.fullName}}</td>
+        <td>{{user.email}}</td>
+        <!-- <td>{{user.password}}</td>
+        <td>{{user.confirmPassword}}</td> -->
+        <td>{{user.mobile}}</td>
+        <td>{{user.address }}</td>
+        <td>{{user.role}}</td>
+        <td><button class="btn btn-success"(click)='selectUsers(user)'>
+          Update
+        </button></td>
+        <td><button class="btn btn-danger "(click)='deleteUsers(user)'>
+          Delete
+        </button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+

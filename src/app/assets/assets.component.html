@@ -1,0 +1,33 @@
+<div class="alert alert-danger" *ngIf='message'>{{message}}</div>
+<div class="container mt-5">  
+  <div class="col-md-4 offset-md-4 mt-4 mb-3">
+    <input type="search" name="searchValue" [(ngModel)]='searchValue' placeholder="search by asset name..." class="form-control">
+  </div>
+  <table class="table table-bordered table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th>Asset Id</th>
+        <th>Image Url</th>
+        <th>Asset Name</th>
+        <th>Quantity</th>
+        <th>Price/Unit</th>
+        <th>Description</th>
+        <th>Raise Request</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let asset of assets | filterAssets : searchValue">
+        <td>{{asset.assetId}}</td>
+        <td> <img src="{{ asset.assetImageUrl}}" alt="" height="150px" width="150px"></td>
+        <td>{{asset.assetName | uppercase}}</td>
+        <td>{{asset.assetQuantity}}</td>
+        <td>{{asset.assetPrice | currency:'INR' }}</td>
+        <td>{{asset.assetDescription | titlecase }}</td>
+        <td><button class="btn btn-success "(click)='raiseRequest(asset)'>
+          Request Asset
+        </button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

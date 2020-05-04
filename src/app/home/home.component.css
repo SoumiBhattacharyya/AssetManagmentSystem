@@ -1,0 +1,12 @@
+.jumbotron{
+  background-color: rgb(185, 245, 185);
+  background-size: cover;
+  height: 100%;
+}
+
+body{
+  background-image: url(https://png.pngtree.com/png-vector/20191122/ourlarge/pngtree-beautiful-profile-settings-glyph-vector-icon-png-image_2002835.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}

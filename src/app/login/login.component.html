@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body >
+  <div class="alert alert-success" *ngIf='message'>{{ message }}</div>
+<div class="col-md-5 offset-md-3 mt-5">
+  <form #loginForm='ngForm' (ngSubmit)='loginUser(loginForm)' >
+    <div class="card ">
+      <div class="card-header bg-light">
+        <h4>Please Login</h4>
+      </div> 
+       <div class="card-body">           
+        <div class="form-group ">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email"  required minlength="8" #email='ngModel' ngModel name="email" required>
+          <div  *ngIf='email.touched && email.invalid'>
+            <div class="alert alert-danger" *ngIf='email.errors.required'>
+              This field is mandatory
+            </div>
+            <div class="alert alert-danger" *ngIf='email.errors.minlength'>
+              This field accepts atleast 8 characters!
+            </div>
+            <div class="alert alert-danger" *ngIf='email'>
+              Please enter a valid email with @  !
+            </div>
+            <!-- <div class="alert alert-danger" *ngIf='email.errors.pattern'>
+              Please enter a valid email with @  !
+            </div> -->
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password"  minlength="6" maxlength="15" #password='ngModel' ngModel name="password" required>
+          <div  *ngIf='password.touched && password.invalid'>
+            <div class="alert alert-danger" *ngIf='password.errors.required'>
+              This field is mandatory!
+            </div>
+            <div class="alert alert-danger" *ngIf='password.errors.minlength'>
+              This field accepts atleast 6 and max of 15 characters !
+            </div>
+          </div>
+        </div>                 
+       </div> 
+   <div class="card-footer bg-light" >
+       <a routerLink='/register'>Don't have an account? Please Register</a>
+        <button type="submit" class="btn btn-outline-dark float-right">
+         Login
+        </button>
+      </div>
+    </div>  
+  </form>
+</div>
+</body>
+</html>
